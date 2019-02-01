@@ -20,7 +20,11 @@ class ViewController: UIViewController {
             avPlayerVC.player = player
         }
 
+        avPlayerVC.willMove(toParentViewController: self)
         view.addSubview(avPlayerVC.view)
+        addChildViewController(avPlayerVC)
+        avPlayerVC.didMove(toParentViewController: self)
+
         NSLayoutConstraint.activate([
             avPlayerVC.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             avPlayerVC.view.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
